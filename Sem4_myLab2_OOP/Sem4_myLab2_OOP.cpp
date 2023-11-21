@@ -100,14 +100,14 @@ int main() {
 						ptrGeometry[j]->Show();	// показываем фигуру
 
 						CurrentBoots->Hide();			// прячем прошлые сапоги
-						Point* NewBoots = ptrBoots[transitionMatrix[i][j]]; // новые сапоги
-						NewBoots->SetX(CurrentBoots->GetX()); // присваиваем новым сапогам координаты старых
-						NewBoots->SetY(CurrentBoots->GetY());
-						NewBoots->SetXright(CurrentBoots->GetXr());
-						NewBoots->SetYright(CurrentBoots->GetYr());
-						i = transitionMatrix[i][j];		// i - индекс следующих сапог
-						CurrentBoots = NewBoots;		// текущие сапоги = новые сапоги
-						CurrentBoots->Show();			// показываем текующие сапоги
+						//Point* NewBoots = ptrBoots[transitionMatrix[i][j]]; // новые сапоги
+						//NewBoots->SetX(CurrentBoots->GetX()); // присваиваем новым сапогам координаты старых
+						//NewBoots->SetY(CurrentBoots->GetY());
+						//NewBoots->SetXright(CurrentBoots->GetXr());
+						//NewBoots->SetYright(CurrentBoots->GetYr());
+						//i = transitionMatrix[i][j];		// i - индекс следующих сапог
+						//CurrentBoots = NewBoots;		// текущие сапоги = новые сапоги
+						//CurrentBoots->Show();			// показываем текующие сапоги
 					}
 				} 
 			} 
