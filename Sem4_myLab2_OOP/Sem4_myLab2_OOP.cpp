@@ -49,11 +49,11 @@ int main() {
 
 			Figure Boots(x0, y0, x0 + 100, y0 + 100);	// красные сапоги
 
-			//ColoredBoots BrownBoots(x0, y0, x0 + 100, y0 + 100);			// синие сапоги
-			//TornColoredBoots TornBrownBoots(x0, y0, x0 + 100, y0 + 100);	// зеленые сапоги
+			ColoredBoots BrownBoots(x0, y0, x0 + 100, y0 + 100);			// синие сапоги
+			TornColoredBoots TornBrownBoots(x0, y0, x0 + 100, y0 + 100);	// зеленые сапоги
 
-			//BootsWithoutHeels NoHeelsBoots(x0, y0, x0 + 300, y0 + 100);		// серые сапоги без каблука
-			//BootsWithStrip StripBoots(x0, y0, x0 + 200, y0 + 100);			// эти я не добавлял
+			BootsWithoutHeels NoHeelsBoots(x0, y0, x0 + 300, y0 + 100);		// серые сапоги без каблука
+			BootsWithStrip StripBoots(x0, y0, x0 + 200, y0 + 100);			// эти я не добавлял
 
 			CRectangle oRectangle(100, 100, 30, 40);	// прямоугольник
 			Square oSquare(400, 400, 20);				// квадрат
@@ -66,12 +66,12 @@ int main() {
 			CurrentBoots->Show();															   // показать актуальные сапоги
 
 			// матрица переходов (ОНА ДЛЯ 3 И 4 ЛАБЫ), строки - это сапоги, столбцы - это геометрические фигуры
-			int transitionMatrix[n + 1][n] = {
-				{1, 2, 3},
-				{3, 2, 1},
-				{1, 3, 2},
-				{1, 2, 3}
-			};
+			//int transitionMatrix[n + 1][n] = {
+			//	{1, 2, 3},
+			//	{3, 2, 1},
+			//	{1, 3, 2},
+			//	{1, 2, 3}
+			//};
 
 			//окрашиваем фигуры в цвета
 			ptrGeometry[0]->Show();                    // показать прямоугольник
@@ -87,19 +87,19 @@ int main() {
 					Point* Object = ptrGeometry[j];		// геометрический объект
 					if (ptrGeometry[j]->IsCollision(ptrBoots[i], ptrGeometry[j]) && ptrGeometry[j]->IsVisible()) {	// если сапоги столкнулись с фигурой, то
 
-						//std::cout << "Произошло столкновение!" << std::endl;		// ВОТ ЭТИ ДВЕ СТРОЧКИ ДЛЯ 2 ЛАБЫ
-						//return 0;													// ОСТАЛЬНОЕ ВСЕ ТУТ ДЛЯ 3 ЛАБЫ
+						std::cout << "Произошло столкновение!" << std::endl;		// ВОТ ЭТИ ДВЕ СТРОЧКИ ДЛЯ 2 ЛАБЫ
+						return 0;													// ОСТАЛЬНОЕ ВСЕ ТУТ ДЛЯ 3 ЛАБЫ
 						
-						ptrGeometry[j]->Hide();			// прячем геометрическую фигуру
-						ptrGeometry[j]->MoveTo(ptrGeometry[j]->GetX() + rand() % 100 - 2, ptrGeometry[j]->GetY() + rand() % 100 - 2, 0, 0);
-						// если фигура вышла за пределы поля, то возвращаем ее обратно
-						if ((ptrGeometry[j]->GetX() + 30 > X_MAX) || (ptrGeometry[j]->GetX() - 30 < X_MIN) || (ptrGeometry[j]->GetY() - 40 > Y_MAX) || (ptrGeometry[j]->GetY() + 40 < Y_MIN)) {
-							ptrGeometry[j]->MoveTo(100 + rand() % 1000, 100, 0, 0);
-						}
+						//ptrGeometry[j]->Hide();			// прячем геометрическую фигуру
+						//ptrGeometry[j]->MoveTo(ptrGeometry[j]->GetX() + rand() % 100 - 2, ptrGeometry[j]->GetY() + rand() % 100 - 2, 0, 0);
+						//// если фигура вышла за пределы поля, то возвращаем ее обратно
+						//if ((ptrGeometry[j]->GetX() + 30 > X_MAX) || (ptrGeometry[j]->GetX() - 30 < X_MIN) || (ptrGeometry[j]->GetY() - 40 > Y_MAX) || (ptrGeometry[j]->GetY() + 40 < Y_MIN)) {
+						//	ptrGeometry[j]->MoveTo(100 + rand() % 1000, 100, 0, 0);
+						//}
 
-						ptrGeometry[j]->Show();	// показываем фигуру
+						//ptrGeometry[j]->Show();	// показываем фигуру
 
-						CurrentBoots->Hide();			// прячем прошлые сапоги
+						//CurrentBoots->Hide();			// прячем прошлые сапоги
 						//Point* NewBoots = ptrBoots[transitionMatrix[i][j]]; // новые сапоги
 						//NewBoots->SetX(CurrentBoots->GetX()); // присваиваем новым сапогам координаты старых
 						//NewBoots->SetY(CurrentBoots->GetY());
