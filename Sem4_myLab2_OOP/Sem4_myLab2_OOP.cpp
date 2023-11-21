@@ -60,7 +60,7 @@ int main() {
 			Circle oCircle(200, 200, radius);			// круг
 
 			//Point* ptrBoots[n + 1] = { &Boots, &BrownBoots, &TornBrownBoots, &NoHeelsBoots };  // массив указателей на сапоги
-			Point* ptrBoots[n + 1] = { &Boots };
+			Point* ptrBoots[n + 1] = { &StripBoots };
 			Point* ptrGeometry[n] = { &oRectangle, &oSquare, &oCircle };					   // массив указателей на геометрические фигуры
 			Point* CurrentBoots = ptrBoots[i];												   // акутальные сапоги
 			CurrentBoots->Show();															   // показать актуальные сапоги

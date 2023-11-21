@@ -258,8 +258,8 @@ void Figure::Show(void)
 {
 	Visible = true;
 
-	HPEN Pen = CreatePen(PS_SOLID, 2, RGB(128, 0, 0));
-	HBRUSH Brush = CreateSolidBrush(RGB(128, 0, 0));
+	HPEN Pen = CreatePen(PS_SOLID, 2, RGB(0, 0, 0));
+	HBRUSH Brush = CreateSolidBrush(RGB(255, 255, 255));
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
@@ -340,21 +340,29 @@ void ColoredBoots::Show(void)
 {
 	Visible = true;
 
-	HPEN Pen = CreatePen(PS_SOLID, 2, RGB(0, 0, 128));
-	HBRUSH Brush = CreateSolidBrush(RGB(0, 0, 128));
+	HPEN Pen = CreatePen(PS_SOLID, 2, RGB(0, 0, 0));
+	HBRUSH Brush = CreateSolidBrush(RGB(255, 255, 255));
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	// Первый ботинок
-	Rectangle(hdc, X, Y, xRight, yRight);
-	Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);
-	Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);
+	//// Первый ботинок
+	//Rectangle(hdc, X, Y, xRight, yRight);
+	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);
+	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);
 
-	// Второй ботинок
-	Rectangle(hdc, X + 200, Y, xRight + 200, yRight);
-	Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);
-	Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);
+	//// Второй ботинок
+	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);
+	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);
+	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);
 
+	Ellipse(hdc, X, Y, X + 200, Y + 200);
+	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
+	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
+	Ellipse(hdc, X + 70, Y + 150, X + 130, Y + 170);
+
+	//EARS
+	Ellipse(hdc, X + 200, Y + 50, X + 230, Y + 120);
+	Ellipse(hdc, X, Y + 50, X - 30, Y + 120);
 
 	//DeleteObject(Pen);
 	DeleteObject(Brush);
@@ -370,16 +378,24 @@ void ColoredBoots::Hide(void)
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	// Первый ботинок
-	Rectangle(hdc, X, Y, xRight, yRight);									// тело сапога левого
-	Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук сапога левого
-	Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос сапога левого
+	//// Первый ботинок
+	//Rectangle(hdc, X, Y, xRight, yRight);									// тело сапога левого
+	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук сапога левого
+	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос сапога левого
 
-	// Второй ботинок
-	Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело сапога правого
-	Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук сапога правого
-	Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос сапога правого
+	//// Второй ботинок
+	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело сапога правого
+	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук сапога правого
+	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос сапога правого
 
+	Ellipse(hdc, X, Y, X + 200, Y + 200);
+	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
+	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
+	Ellipse(hdc, X + 70, Y + 150, X + 130, Y + 170);
+
+	//EARS
+	Ellipse(hdc, X + 200, Y + 50, X + 230, Y + 120);
+	Ellipse(hdc, X, Y + 50, X - 30, Y + 120);
 
 	//DeleteObject(Pen);
 	DeleteObject(Brush);
@@ -412,20 +428,32 @@ void TornColoredBoots::Show(void)
 {
 	Visible = true;
 
-	HPEN Pen = CreatePen(PS_SOLID, 2, RGB(0, 128, 0));
+	HPEN Pen = CreatePen(PS_SOLID, 2, RGB(0, 0, 0));
 	HBRUSH Brush = CreateSolidBrush(RGB(0, 128, 0));
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	// Первый ботинок	
-	Rectangle(hdc, X, Y, xRight, yRight);									// тело сапога левого
-	Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук сапога левого
-	Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос сапога левого
+	//// Первый ботинок	
+	//Rectangle(hdc, X, Y, xRight, yRight);									// тело сапога левого
+	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук сапога левого
+	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос сапога левого
 
-	// Второй ботинок
-	Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело сапога правого
-	Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблку сапога правого
-	Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос сапога правого
+	//// Второй ботинок
+	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело сапога правого
+	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблку сапога правого
+	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос сапога правого
+
+	Ellipse(hdc, X, Y, X + 200, Y + 200);
+	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
+	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
+	Ellipse(hdc, X + 70, Y + 150, X + 130, Y + 170);
+
+	//EARS
+	Ellipse(hdc, X + 200, Y + 50, X + 230, Y + 120);
+	Ellipse(hdc, X, Y + 50, X - 30, Y + 120);
+
+	//NOSE
+	Ellipse(hdc, X + 92, Y + 100, X + 112, Y + 120);
 
 
 	//DeleteObject(Pen);
@@ -442,16 +470,27 @@ void TornColoredBoots::Hide(void)
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	// Первый ботинок
-	Rectangle(hdc, X, Y, xRight, yRight);									// тело сапога левого
-	Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук сапога левого
-	Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос сапога левого
+	//// Первый ботинок
+	//Rectangle(hdc, X, Y, xRight, yRight);									// тело сапога левого
+	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук сапога левого
+	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос сапога левого
 
-	// Второй ботинок
-	Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело сапога правого
-	Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук сапога правого
-	Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос сапога правого
+	//// Второй ботинок
+	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело сапога правого
+	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук сапога правого
+	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос сапога правого
 
+	Ellipse(hdc, X, Y, X + 200, Y + 200);
+	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
+	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
+	Ellipse(hdc, X + 70, Y + 150, X + 130, Y + 170);
+
+	//EARS
+	Ellipse(hdc, X + 200, Y + 50, X + 230, Y + 120);
+	Ellipse(hdc, X, Y + 50, X - 30, Y + 120);
+
+	//NOSE
+	Ellipse(hdc, X + 92, Y + 100, X + 112, Y + 120);
 
 	//DeleteObject(Pen);
 	DeleteObject(Brush);
@@ -484,20 +523,25 @@ void BootsWithoutHeels::Show(void)
 {
 	Visible = true;
 
-	HPEN Pen = CreatePen(PS_SOLID, 2, RGB(64, 64, 64));
-	HBRUSH Brush = CreateSolidBrush(RGB(64, 64, 64));
+	HPEN Pen = CreatePen(PS_SOLID, 2, RGB(0, 0, 0));
+	HBRUSH Brush = CreateSolidBrush(RGB(255, 255, 0));
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
 	// Первый ботинок
-	Rectangle(hdc, X, Y, xRight, yRight);									// тело левого сапога
-	Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук левого сапога
-	Rectangle(hdc, xRight - 100, yRight + 20, xRight - 20, yRight - 20);	// нос левого сапога
+	//Rectangle(hdc, X, Y, xRight, yRight);									// тело левого сапога
+	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук левого сапога
+	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 20, yRight - 20);	// нос левого сапога
 
-	// Второй ботинок
-	Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело правого сапога
-	Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук правого сапога
-	Rectangle(hdc, xRight + 100, yRight + 20, xRight + 180, yRight - 20);	// нос правого сапога
+	//// Второй ботинок
+	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело правого сапога
+	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук правого сапога
+	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 180, yRight - 20);	// нос правого сапога
+
+	Ellipse(hdc, X, Y, X + 200, Y + 200);
+	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
+	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
+	Ellipse(hdc, X + 70, Y + 150, X + 130, Y + 170);
 
 
 	DeleteObject(Pen);
@@ -514,15 +558,20 @@ void BootsWithoutHeels::Hide(void)
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	// Первый ботинок
-	Rectangle(hdc, X, Y, xRight, yRight);									// тело левого сапога
-	Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук левого сапога
-	Rectangle(hdc, xRight - 100, yRight + 20, xRight - 20, yRight - 20);	// нос левого сапога
+	//// Первый ботинок
+	//Rectangle(hdc, X, Y, xRight, yRight);									// тело левого сапога
+	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук левого сапога
+	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 20, yRight - 20);	// нос левого сапога
 
-	// Второй ботинок
-	Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело правого сапога
-	Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук правого сапога
-	Rectangle(hdc, xRight + 100, yRight + 20, xRight + 180, yRight - 20);	// нос правого сапога
+	//// Второй ботинок
+	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело правого сапога
+	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук правого сапога
+	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 180, yRight - 20);	// нос правого сапога
+
+	Ellipse(hdc, X, Y, X + 200, Y + 200);
+	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
+	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
+	Ellipse(hdc, X + 70, Y + 150, X + 130, Y + 170);
 
 
 	DeleteObject(Pen);
@@ -556,20 +605,26 @@ void BootsWithStrip::Show(void)
 {
 	Visible = true;
 
-	//HPEN Pen = CreatePen(PS_SOLID, 2, RGB(66, 29, 5));
+	HPEN Pen = CreatePen(PS_SOLID, 2, RGB(128, 0, 0));
 	HBRUSH Brush = CreateSolidBrush(RGB(0, 0, 0));
-	//SelectObject(hdc, Pen); // сделаем перо активным
+	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	// Первый ботинок
-	Rectangle(hdc, X, Y, xRight, yRight);									// тело левого сапога
-	Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук левого сапога
-	Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос левого сапога
+	//// Первый ботинок
+	//Rectangle(hdc, X, Y, xRight, yRight);									// тело левого сапога
+	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук левого сапога
+	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос левого сапога
 
-	// Второй ботинок
-	Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело правого сапога
-	Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук правого сапога
-	Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос правого
+	//// Второй ботинок
+	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело правого сапога
+	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук правого сапога
+	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос правого
+
+	Ellipse(hdc, X, Y, X + 200, Y + 200);
+	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
+	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
+	Ellipse(hdc, X + 70, Y + 150, X + 130, Y + 170);
+
 
 
 	//DeleteObject(Pen);
@@ -581,21 +636,29 @@ void BootsWithStrip::Hide(void)
 {
 	Visible = false;
 
-	HPEN Pen = CreatePen(PS_SOLID, 2, RGB(66, 29, 5));
+	HPEN Pen = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
 	HBRUSH Brush = CreateSolidBrush(RGB(255, 255, 255));
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	// Первый ботинок
-	Rectangle(hdc, X, Y, xRight, yRight);									// тело левого сапога
-	Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук левого сапога
-	Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос левого сапога
+	//// Первый ботинок
+	//Rectangle(hdc, X, Y, xRight, yRight);									// тело левого сапога
+	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук левого сапога
+	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос левого сапога
 
-	// Второй ботинок
-	Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело правого сапога
-	Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук правого сапога
-	Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос правого сапога
+	//// Второй ботинок
+	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело правого сапога
+	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук правого сапога
+	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос правого сапога
 
+	Ellipse(hdc, X, Y, X + 200, Y + 200);
+	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
+	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
+	Ellipse(hdc, X + 70, Y + 150, X + 130, Y + 170);
+
+	//EARS
+	Ellipse(hdc, X + 200, Y + 50, X + 230, Y + 120);
+	Ellipse(hdc, X, Y + 50, X - 30, Y + 120);
 
 	DeleteObject(Pen);
 	DeleteObject(Brush);
