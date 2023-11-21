@@ -49,17 +49,18 @@ int main() {
 
 			Figure Boots(x0, y0, x0 + 100, y0 + 100);	// красные сапоги
 
-			ColoredBoots BrownBoots(x0, y0, x0 + 100, y0 + 100);			// синие сапоги
-			TornColoredBoots TornBrownBoots(x0, y0, x0 + 100, y0 + 100);	// зеленые сапоги
+			//ColoredBoots BrownBoots(x0, y0, x0 + 100, y0 + 100);			// синие сапоги
+			//TornColoredBoots TornBrownBoots(x0, y0, x0 + 100, y0 + 100);	// зеленые сапоги
 
-			BootsWithoutHeels NoHeelsBoots(x0, y0, x0 + 300, y0 + 100);		// серые сапоги без каблука
-			BootsWithStrip StripBoots(x0, y0, x0 + 200, y0 + 100);			// эти я не добавлял
+			//BootsWithoutHeels NoHeelsBoots(x0, y0, x0 + 300, y0 + 100);		// серые сапоги без каблука
+			//BootsWithStrip StripBoots(x0, y0, x0 + 200, y0 + 100);			// эти я не добавлял
 
 			CRectangle oRectangle(100, 100, 30, 40);	// прямоугольник
 			Square oSquare(400, 400, 20);				// квадрат
 			Circle oCircle(200, 200, radius);			// круг
 
-			Point* ptrBoots[n + 1] = { &Boots, &BrownBoots, &TornBrownBoots, &NoHeelsBoots };  // массив указателей на сапоги
+			//Point* ptrBoots[n + 1] = { &Boots, &BrownBoots, &TornBrownBoots, &NoHeelsBoots };  // массив указателей на сапоги
+			Point* ptrBoots[n + 1] = { &Boots };
 			Point* ptrGeometry[n] = { &oRectangle, &oSquare, &oCircle };					   // массив указателей на геометрические фигуры
 			Point* CurrentBoots = ptrBoots[i];												   // акутальные сапоги
 			CurrentBoots->Show();															   // показать актуальные сапоги
