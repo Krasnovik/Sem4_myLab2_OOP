@@ -6,11 +6,11 @@
 //																									*
 //	Project type: Win32 Console Application															*
 //	File name:    Sem4_myLab2_OOP																	*
-//	Programmer:	  Potashnikov A.D.																	*
-//	Вариант:      20 (Сапоги)																		*
+//	Programmer:	  Krasnov A.D.																	*
+//	Вариант:      13 (Лицо)																		*
 //	Номер:		  2																					*
-//	Created:      10.05.23																			*
-//	Last revision:05.10.23																			*	
+//	Created:      05.05.23																			*
+//	Last revision:05.11.23																			*	
 //  Комментарий:  Построить иерархию потомков класса Figure, построить иерархию						*
 //				  дополнительных объектов, реализовать взаимодействие объектов						*
 //																									*
@@ -47,23 +47,23 @@ int main() {
 
 			Point aPoint(x0, y0, x0, y0);	// точка
 
-			Figure Boots(x0, y0, x0 + 100, y0 + 100);	// красные сапоги
+			Figure Face(x0, y0, x0 + 100, y0 + 100);	// лицо
 
-			ColoredBoots BrownBoots(x0, y0, x0 + 100, y0 + 100);			// синие сапоги
-			TornColoredBoots TornBrownBoots(x0, y0, x0 + 100, y0 + 100);	// зеленые сапоги
+			FaceWithEars FaceEars(x0, y0, x0 + 100, y0 + 100);			// лицо с ушами
+			FaceWithEarsAndNose FaceEarsNose(x0, y0, x0 + 100, y0 + 100);	// лицо с ушами и носом
 
-			BootsWithoutHeels NoHeelsBoots(x0, y0, x0 + 300, y0 + 100);		// серые сапоги без каблука
-			BootsWithStrip StripBoots(x0, y0, x0 + 200, y0 + 100);			// эти я не добавлял
+			AsianFace Asian(x0, y0, x0 + 300, y0 + 100);		// азиат
+			BlackFace Black(x0, y0, x0 + 200, y0 + 100);			// негр
 
 			CRectangle oRectangle(100, 100, 30, 40);	// прямоугольник
 			Square oSquare(400, 400, 20);				// квадрат
 			Circle oCircle(200, 200, radius);			// круг
 
-			//Point* ptrBoots[n + 1] = { &Boots, &BrownBoots, &TornBrownBoots, &NoHeelsBoots };  // массив указателей на сапоги
-			Point* ptrBoots[n + 1] = { &StripBoots };
+			Point* ptrFaces[n + 1] = { &Face, &FaceEars, &Asian, &Black };  // массив указателей на лица
+			//Point* ptrFaces[n + 1] = { &NoHeelsBoots };
 			Point* ptrGeometry[n] = { &oRectangle, &oSquare, &oCircle };					   // массив указателей на геометрические фигуры
-			Point* CurrentBoots = ptrBoots[i];												   // акутальные сапоги
-			CurrentBoots->Show();															   // показать актуальные сапоги
+			Point* currentFace = ptrFaces[i];												   // нынешнее лицо
+			currentFace->Show();															   // показать нынешнее лицо
 
 			// матрица переходов (ОНА ДЛЯ 3 И 4 ЛАБЫ), строки - это сапоги, столбцы - это геометрические фигуры
 			//int transitionMatrix[n + 1][n] = {
@@ -80,12 +80,12 @@ int main() {
 			
 			while (!KEY_DOWN(VK_ESCAPE)) {				// начинаем двигать нашу фигуру
 
-				CurrentBoots->Drag(10);					// двигаем текущие сапоги
+				currentFace->Drag(10);					// двигаем лицо
 				Sleep(1);
 
 				for (int j = 0; j < 3; j++) {			// проходим по каждой геометрической фигуре
 					Point* Object = ptrGeometry[j];		// геометрический объект
-					if (ptrGeometry[j]->IsCollision(ptrBoots[i], ptrGeometry[j]) && ptrGeometry[j]->IsVisible()) {	// если сапоги столкнулись с фигурой, то
+					if (ptrGeometry[j]->IsCollision(ptrFaces[i], ptrGeometry[j]) && ptrGeometry[j]->IsVisible()) {	// если лицо столкнулось с фигурой, то
 
 						std::cout << "Произошло столкновение!" << std::endl;		// ВОТ ЭТИ ДВЕ СТРОЧКИ ДЛЯ 2 ЛАБЫ
 						return 0;													// ОСТАЛЬНОЕ ВСЕ ТУТ ДЛЯ 3 ЛАБЫ
@@ -99,15 +99,15 @@ int main() {
 
 						//ptrGeometry[j]->Show();	// показываем фигуру
 
-						//CurrentBoots->Hide();			// прячем прошлые сапоги
-						//Point* NewBoots = ptrBoots[transitionMatrix[i][j]]; // новые сапоги
-						//NewBoots->SetX(CurrentBoots->GetX()); // присваиваем новым сапогам координаты старых
-						//NewBoots->SetY(CurrentBoots->GetY());
-						//NewBoots->SetXright(CurrentBoots->GetXr());
-						//NewBoots->SetYright(CurrentBoots->GetYr());
+						//currentFace->Hide();			// прячем прошлые сапоги
+						//Point* NewBoots = ptrFaces[transitionMatrix[i][j]]; // новые сапоги
+						//NewBoots->SetX(currentFace->GetX()); // присваиваем новым сапогам координаты старых
+						//NewBoots->SetY(currentFace->GetY());
+						//NewBoots->SetXright(currentFace->GetXr());
+						//NewBoots->SetYright(currentFace->GetYr());
 						//i = transitionMatrix[i][j];		// i - индекс следующих сапог
-						//CurrentBoots = NewBoots;		// текущие сапоги = новые сапоги
-						//CurrentBoots->Show();			// показываем текующие сапоги
+						//currentFace = NewBoots;		// текущие сапоги = новые сапоги
+						//currentFace->Show();			// показываем текующие сапоги
 					}
 				} 
 			} 

@@ -71,14 +71,14 @@ public:
 };
 
 // Класс Цветные сапоги (наследуется от класса Фигура)
-class ColoredBoots : public Figure {                // инициализация
+class FaceWithEars : public Figure {                // инициализация
 protected:
 
 
 public:
-    ColoredBoots(int aX, int aY,                    // конструктор класса Цветные сапоги
+    FaceWithEars(int aX, int aY,                    // конструктор класса Цветные сапоги
         int xRight, int yRight);
-    virtual~ColoredBoots();                         // деструктор класса Цветные сапоги
+    virtual~FaceWithEars();                         // деструктор класса Цветные сапоги
 
     bool IsVisible();                               // узнать, видно ли Цветные сапоги                  
     virtual void Show();                                    // показать
@@ -86,13 +86,13 @@ public:
 };
 
 // Класс Порванные цветные сапоги (наследуется от класса Цветные сапоги)
-class TornColoredBoots : public ColoredBoots {      // инициализация
+class FaceWithEarsAndNose : public FaceWithEars {      // инициализация
 protected:
 
 public:
-    TornColoredBoots(int aX, int aY,                // конструктор
+    FaceWithEarsAndNose(int aX, int aY,                // конструктор
         int xRight, int yRight);
-    virtual~TornColoredBoots();                     // деструктор
+    virtual~FaceWithEarsAndNose();                     // деструктор
 
     bool IsVisible();                               // показатель видимости
     virtual void Show();                                    // показать
@@ -101,13 +101,13 @@ public:
 
 
 // Класс Сапоги без каблука (наследуется от класса Фигура)
-class BootsWithoutHeels : public Figure {
+class AsianFace : public Figure {
 protected:
 
 public:
-    BootsWithoutHeels(int aX, int aY,               // конструктор
+    AsianFace(int aX, int aY,               // конструктор
         int xRight, int yRight);
-    virtual~BootsWithoutHeels();                    // деструктор
+    virtual~AsianFace();                    // деструктор
 
     bool IsVisible();                               // показатель видимости
     virtual void Show();                                    // показать
@@ -115,13 +115,13 @@ public:
 };
 
 // Класс Сапоги с полоской (наследуется от класса Фигура)
-class BootsWithStrip : public Figure {
+class BlackFace : public Figure {
 protected:
 
 public:
-    BootsWithStrip(int aX, int aY,                  // конструктор
+    BlackFace(int aX, int aY,                  // конструктор
         int xRight, int yRight);
-    virtual~BootsWithStrip();                       // деструктор
+    virtual~BlackFace();                       // деструктор
 
     bool IsVisible();                               // показатель видимости
     virtual void Show();                                    // показать

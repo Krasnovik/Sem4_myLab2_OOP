@@ -150,7 +150,7 @@ void Point::Drag(int step)
 		X += step;							// изменяем координату Х на размер шага
 		xRight += step;						// изменяем координату Х правого нижнего угла на размер шага
 		MoveTo(X, Y, xRight, yRight);		// передвигаем Фигуру
-		std::this_thread::sleep_for(std::chrono::milliseconds(30));
+
 	}
 
 	if (KEY_DOWN(VK_DOWN))					// стрелка вниз (кнопка 40)
@@ -158,7 +158,7 @@ void Point::Drag(int step)
 		Y += step;							// изменяем координату Y на размер шага
 		yRight += step;						// изменяем координату Y правого нижнего угла на размер шага
 		MoveTo(X, Y, xRight, yRight);		// передвигаем Фигуру
-		std::this_thread::sleep_for(std::chrono::milliseconds(30));
+
 	}
 
 	if (KEY_DOWN(VK_UP))					//стрелка вверх (кнопка 38)
@@ -166,7 +166,7 @@ void Point::Drag(int step)
 		Y -= step;							// изменяем координату Y на размер шага
 		yRight -= step;						// изменяем координату Y правого нижнего угла на размер шага
 		MoveTo(X, Y, xRight, yRight);		// передвигаем Фигуру
-		std::this_thread::sleep_for(std::chrono::milliseconds(30));
+
 		}
 }
 
@@ -175,22 +175,22 @@ void Point::SetColor(int R, int G, int B) {
 }
 
 bool Point::IsCollision(class Point* Boots, class Point* oRectangle) {
-	int xRight = (*Boots).GetXr();		// координата Х правого угла сапогов
-	int yRight = (*Boots).GetYr();		// координата У правого угла сапогов
+	int xRight = (*Boots).GetXr();		// координата Х правого угла
+	int yRight = (*Boots).GetYr();		// координата У правого угла 
 
-	// Проверка на столкновение верхней стороны сапогов с геометрической фигурой
+	// Проверка на столкновение верхней стороны 
 	if ((*oRectangle).GetX() <= (*Boots).GetX() + 250 && (*oRectangle).GetY() + (*oRectangle).GetWidth() >= (*Boots).GetY()
 		&& (*oRectangle).GetY() <= (*Boots).GetYr() && (*oRectangle).GetX() + (*oRectangle).GetLength() >= (*Boots).GetX()) {
 		//std::cout << "Произошло столкновение!1" << std::endl;
 		return 1;
 	}
-	// Проверка на столкновение нижней стороны сапогов с геометрической фигурой
+	// Проверка на столкновение нижней стороны 
 	else if ((*oRectangle).GetX() <= xRight + 250 && (*oRectangle).GetX() + (*oRectangle).GetLength() >= (*Boots).GetX()
 		&& (*oRectangle).GetY() <= yRight + 20 && (*oRectangle).GetY() + (*oRectangle).GetWidth() >= (*Boots).GetY()) {
 		//std::cout << "Произошло столкновение!2" << std::endl;
 		return 1;
 	}
-	// Проверка на столкновение правой стороны сапогов с геометрической фигурой
+	// Проверка на столкновение правой стороны 
 	else if (((*oRectangle).GetX() <= xRight + 250 && (*oRectangle).GetX() + (*oRectangle).GetLength() >= (*Boots).GetX() && (*oRectangle).GetY() <= yRight
 		&& (*oRectangle).GetY() + (*oRectangle).GetWidth() >= yRight) ||
 		((*oRectangle).GetX() <= xRight + 200 && (*oRectangle).GetX() + (*oRectangle).GetLength() >= (*Boots).GetX() && (*oRectangle).GetY() <= yRight
@@ -198,7 +198,7 @@ bool Point::IsCollision(class Point* Boots, class Point* oRectangle) {
 		//std::cout << "Призошло столкновение!3" << std::endl;
 		return 1;
 	}
-	// Проверка на столкновение левой стороны сапогов с геометрической фигурой
+	// Проверка на столкновение левой стороны
 	else if ((*oRectangle).GetX() + (*oRectangle).GetLength() >= (*Boots).GetX() && (*oRectangle).GetX() <= (*Boots).GetXr() && (*oRectangle).GetY() <= yRight
 		&& (*oRectangle).GetY() + (*oRectangle).GetWidth() >= (*Boots).GetY()) {
 		//std::cout << "Произошло столкновение!4" << std::endl;
@@ -263,23 +263,10 @@ void Figure::Show(void)
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	//// Первый ботинок
-	//Rectangle(hdc, X, Y, xRight, yRight);									// тело сапога левого
-	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук сапога левого
-	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос сапога левого
-
-	//// Второй ботинок
-	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело сапога правого
-	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук сапога правого
-	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос сапога правого
-
 	Ellipse(hdc, X, Y, X + 200, Y + 200);
 	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
 	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
 	Ellipse(hdc, X + 70, Y + 150, X + 130, Y + 170);
-
-
-
 
 	//DeleteObject(Pen);
 	DeleteObject(Brush);
@@ -295,15 +282,6 @@ void Figure::Hide(void)
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	//// Первый ботинок
-	//Rectangle(hdc, X, Y, xRight, yRight);									// тело сапога левого
-	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук сапога левого
-	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос сапога левого
-
-	//// Второй ботинок
-	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело сапога правого
-	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук сапога правого
-	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос сапога правого
 	Ellipse(hdc, X, Y, X + 200, Y + 200);
 	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
 	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
@@ -315,28 +293,28 @@ void Figure::Hide(void)
 
 /****************************************************
 *													*
-*			Методы класса ColoredBoots				*
+*			Методы класса FaceWithEars				*
 *													*
 *****************************************************/
 
 // Конструктор
-ColoredBoots::ColoredBoots(int aX, int aY, int xRight, int yRight) : Figure(aX, aY, xRight, yRight)
+FaceWithEars::FaceWithEars(int aX, int aY, int xRight, int yRight) : Figure(aX, aY, xRight, yRight)
 {
 
 }
 
-bool ColoredBoots::IsVisible() {
+bool FaceWithEars::IsVisible() {
 	return Visible;
 }
 
 // Деструктор
-ColoredBoots::~ColoredBoots(void)
+FaceWithEars::~FaceWithEars(void)
 {
 
 };
 
-// Показать сапоги
-void ColoredBoots::Show(void)
+// Показать 
+void FaceWithEars::Show(void)
 {
 	Visible = true;
 
@@ -345,16 +323,6 @@ void ColoredBoots::Show(void)
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	//// Первый ботинок
-	//Rectangle(hdc, X, Y, xRight, yRight);
-	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);
-	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);
-
-	//// Второй ботинок
-	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);
-	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);
-	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);
-
 	Ellipse(hdc, X, Y, X + 200, Y + 200);
 	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
 	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
@@ -368,8 +336,8 @@ void ColoredBoots::Show(void)
 	DeleteObject(Brush);
 }
 
-// Cпрятать сапоги
-void ColoredBoots::Hide(void)
+// Cпрятать
+void FaceWithEars::Hide(void)
 {
 	Visible = false;
 
@@ -377,16 +345,6 @@ void ColoredBoots::Hide(void)
 	HBRUSH Brush = CreateSolidBrush(RGB(255, 255, 255));
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
-
-	//// Первый ботинок
-	//Rectangle(hdc, X, Y, xRight, yRight);									// тело сапога левого
-	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук сапога левого
-	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос сапога левого
-
-	//// Второй ботинок
-	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело сапога правого
-	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук сапога правого
-	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос сапога правого
 
 	Ellipse(hdc, X, Y, X + 200, Y + 200);
 	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
@@ -403,28 +361,28 @@ void ColoredBoots::Hide(void)
 
 /****************************************************
 *													*
-*			Методы класса TornColoredBoots			*
+*			Методы класса FaceWithEarsAndNose			*
 *													*
 *****************************************************/
 
 // Конструктор
-TornColoredBoots::TornColoredBoots(int aX, int aY, int xRight, int yRight) : ColoredBoots(aX, aY, xRight, yRight)
+FaceWithEarsAndNose::FaceWithEarsAndNose(int aX, int aY, int xRight, int yRight) : FaceWithEars(aX, aY, xRight, yRight)
 {
 
 }
 
-bool TornColoredBoots::IsVisible() {
+bool FaceWithEarsAndNose::IsVisible() {
 	return Visible;
 }
 
 // Деструктор
-TornColoredBoots::~TornColoredBoots(void)
+FaceWithEarsAndNose::~FaceWithEarsAndNose(void)
 {
 
 };
 
-// Показать сапоги
-void TornColoredBoots::Show(void)
+// Показать 
+void FaceWithEarsAndNose::Show(void)
 {
 	Visible = true;
 
@@ -433,16 +391,7 @@ void TornColoredBoots::Show(void)
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	//// Первый ботинок	
-	//Rectangle(hdc, X, Y, xRight, yRight);									// тело сапога левого
-	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук сапога левого
-	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос сапога левого
-
-	//// Второй ботинок
-	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело сапога правого
-	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблку сапога правого
-	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос сапога правого
-
+	//FIGURE
 	Ellipse(hdc, X, Y, X + 200, Y + 200);
 	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
 	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
@@ -460,8 +409,8 @@ void TornColoredBoots::Show(void)
 	DeleteObject(Brush);
 }
 
-// Cпрятать сапоги
-void TornColoredBoots::Hide(void)
+// Cпрятать 
+void FaceWithEarsAndNose::Hide(void)
 {
 	Visible = false;
 
@@ -470,16 +419,7 @@ void TornColoredBoots::Hide(void)
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	//// Первый ботинок
-	//Rectangle(hdc, X, Y, xRight, yRight);									// тело сапога левого
-	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук сапога левого
-	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос сапога левого
-
-	//// Второй ботинок
-	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело сапога правого
-	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук сапога правого
-	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос сапога правого
-
+	//FIGURE
 	Ellipse(hdc, X, Y, X + 200, Y + 200);
 	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
 	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
@@ -498,28 +438,28 @@ void TornColoredBoots::Hide(void)
 
 /****************************************************
 *													*
-*			Методы класса BootsWithoutHeels			*
+*			Методы класса AsianFace			*
 *													*
 *****************************************************/
 
 // Конструктор
-BootsWithoutHeels::BootsWithoutHeels(int aX, int aY, int xRight, int yRight) : Figure(aX, aY, xRight, yRight)
+AsianFace::AsianFace(int aX, int aY, int xRight, int yRight) : Figure(aX, aY, xRight, yRight)
 {
 
 }
 
-bool BootsWithoutHeels::IsVisible() {
+bool AsianFace::IsVisible() {
 	return Visible;
 }
 
 // Деструктор
-BootsWithoutHeels::~BootsWithoutHeels(void)
+AsianFace::~AsianFace(void)
 {
 
 };
 
-// Показать сапоги
-void BootsWithoutHeels::Show(void)
+// Показать
+void AsianFace::Show(void)
 {
 	Visible = true;
 
@@ -528,16 +468,7 @@ void BootsWithoutHeels::Show(void)
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	// Первый ботинок
-	//Rectangle(hdc, X, Y, xRight, yRight);									// тело левого сапога
-	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук левого сапога
-	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 20, yRight - 20);	// нос левого сапога
-
-	//// Второй ботинок
-	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело правого сапога
-	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук правого сапога
-	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 180, yRight - 20);	// нос правого сапога
-
+	//FIGURE
 	Ellipse(hdc, X, Y, X + 200, Y + 200);
 	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
 	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
@@ -548,8 +479,8 @@ void BootsWithoutHeels::Show(void)
 	DeleteObject(Brush);
 }
 
-// Cпрятать сапоги
-void BootsWithoutHeels::Hide(void)
+// Cпрятать
+void AsianFace::Hide(void)
 {
 	Visible = false;
 
@@ -558,16 +489,7 @@ void BootsWithoutHeels::Hide(void)
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	//// Первый ботинок
-	//Rectangle(hdc, X, Y, xRight, yRight);									// тело левого сапога
-	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук левого сапога
-	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 20, yRight - 20);	// нос левого сапога
-
-	//// Второй ботинок
-	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело правого сапога
-	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук правого сапога
-	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 180, yRight - 20);	// нос правого сапога
-
+	//FIGURE
 	Ellipse(hdc, X, Y, X + 200, Y + 200);
 	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
 	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
@@ -580,28 +502,28 @@ void BootsWithoutHeels::Hide(void)
 
 /****************************************************
 *													*
-*			Методы класса BootsWithStrip			*
+*			Методы класса BlackFace			*
 *													*
 *****************************************************/
 
 // Конструктор
-BootsWithStrip::BootsWithStrip(int aX, int aY, int xRight, int yRight) : Figure(aX, aY, xRight, yRight)
+BlackFace::BlackFace(int aX, int aY, int xRight, int yRight) : Figure(aX, aY, xRight, yRight)
 {
 
 }
 
-bool BootsWithStrip::IsVisible() {
+bool BlackFace::IsVisible() {
 	return Visible;
 }
 
 // Деструктор
-BootsWithStrip::~BootsWithStrip(void)
+BlackFace::~BlackFace(void)
 {
 
 };
 
-// Показать сапоги
-void BootsWithStrip::Show(void)
+// Показать
+void BlackFace::Show(void)
 {
 	Visible = true;
 
@@ -610,16 +532,7 @@ void BootsWithStrip::Show(void)
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	//// Первый ботинок
-	//Rectangle(hdc, X, Y, xRight, yRight);									// тело левого сапога
-	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук левого сапога
-	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос левого сапога
-
-	//// Второй ботинок
-	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело правого сапога
-	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук правого сапога
-	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос правого
-
+	//FIGURE
 	Ellipse(hdc, X, Y, X + 200, Y + 200);
 	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
 	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
@@ -631,8 +544,8 @@ void BootsWithStrip::Show(void)
 	DeleteObject(Brush);
 }
 
-// Cпрятать сапоги
-void BootsWithStrip::Hide(void)
+// Cпрятать
+void BlackFace::Hide(void)
 {
 	Visible = false;
 
@@ -641,24 +554,11 @@ void BootsWithStrip::Hide(void)
 	SelectObject(hdc, Pen); // сделаем перо активным
 	SelectObject(hdc, Brush);
 
-	//// Первый ботинок
-	//Rectangle(hdc, X, Y, xRight, yRight);									// тело левого сапога
-	//Rectangle(hdc, xRight - 50, yRight - 30, xRight + 50, yRight + 20);		// каблук левого сапога
-	//Rectangle(hdc, xRight - 100, yRight + 20, xRight - 60, yRight - 20);	// нос левого сапога
-
-	//// Второй ботинок
-	//Rectangle(hdc, X + 200, Y, xRight + 200, yRight);						// тело правого сапога
-	//Rectangle(hdc, xRight + 150, yRight - 30, xRight + 250, yRight + 20);	// каблук правого сапога
-	//Rectangle(hdc, xRight + 100, yRight + 20, xRight + 140, yRight - 20);	// нос правого сапога
-
+	//FIGURE
 	Ellipse(hdc, X, Y, X + 200, Y + 200);
 	Ellipse(hdc, X + 30, Y + 50, X + 80, Y + 100);
 	Ellipse(hdc, X + 120, Y + 50, X + 170, Y + 100);
 	Ellipse(hdc, X + 70, Y + 150, X + 130, Y + 170);
-
-	//EARS
-	Ellipse(hdc, X + 200, Y + 50, X + 230, Y + 120);
-	Ellipse(hdc, X, Y + 50, X - 30, Y + 120);
 
 	DeleteObject(Pen);
 	DeleteObject(Brush);

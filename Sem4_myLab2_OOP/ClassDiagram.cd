@@ -15,37 +15,23 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Figure" Collapsed="true">
-    <Position X="13.5" Y="3.25" Width="1.5" />
+    <Position X="13.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAEAAAEAAAAAAAAAAEEAAAAAAAAAAAAAI=</HashCode>
       <FileName>Classes.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ColoredBoots" Collapsed="true">
-    <Position X="15.75" Y="4.75" Width="1.5" />
+  <Class Name="AsianFace" Collapsed="true">
+    <Position X="10" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAEAEAAAEAAAAAAAAAAEAAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>AAAgAAAAAAAAEAAAEAAAACAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TornColoredBoots" Collapsed="true">
-    <Position X="15.75" Y="6.25" Width="1.5" />
+  <Class Name="BlackFace" Collapsed="true">
+    <Position X="12.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAIAAAAEAAAEAAAAAAAAAAEABAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BootsWithoutHeels" Collapsed="true">
-    <Position X="11.25" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAEAAAEACAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BootsWithStrip" Collapsed="true">
-    <Position X="13.5" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAEAAAAIAAAAAEAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAEAAEAAAAAAAEAAAAAAQAAAAAAAA=</HashCode>
       <FileName>Classes.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -67,6 +53,20 @@
     <Position X="9" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAgAEAAAFAAAAAAAAAgEAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Classes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FaceWithEarsAndNose" Collapsed="true">
+    <Position X="15.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAEACAEAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FaceWithEars" Collapsed="true">
+    <Position X="15.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAEAAABAAAAAAEAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Classes.h</FileName>
     </TypeIdentifier>
   </Class>
