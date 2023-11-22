@@ -70,22 +70,22 @@ public:
     virtual void Hide();                                    // спрятать Фигуру
 };
 
-// Класс Цветные сапоги (наследуется от класса Фигура)
+// Класс Лицо с ушами (наследуется от класса Фигура)
 class FaceWithEars : public Figure {                // инициализация
 protected:
 
 
 public:
-    FaceWithEars(int aX, int aY,                    // конструктор класса Цветные сапоги
+    FaceWithEars(int aX, int aY,                    // конструктор класса Лицо с ушами
         int xRight, int yRight);
-    virtual~FaceWithEars();                         // деструктор класса Цветные сапоги
+    virtual~FaceWithEars();                         // деструктор класса Лицо с ушами
 
-    bool IsVisible();                               // узнать, видно ли Цветные сапоги                  
+    bool IsVisible();                               // узнать, видно ли Лицо с ушами                  
     virtual void Show();                                    // показать
     virtual void Hide();                                    // спрятать
 };
 
-// Класс Порванные цветные сапоги (наследуется от класса Цветные сапоги)
+// Класс Лицо с ушами и носом (наследуется от класса Лицо с ушами)
 class FaceWithEarsAndNose : public FaceWithEars {      // инициализация
 protected:
 
@@ -100,7 +100,7 @@ public:
 };
 
 
-// Класс Сапоги без каблука (наследуется от класса Фигура)
+// Класс Азиат (наследуется от класса Фигура)
 class AsianFace : public Figure {
 protected:
 
@@ -114,7 +114,7 @@ public:
     virtual void Hide();                                    // спрятать
 };
 
-// Класс Сапоги с полоской (наследуется от класса Фигура)
+// Класс Негр (наследуется от класса Фигура)
 class BlackFace : public Figure {
 protected:
 
